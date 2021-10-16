@@ -1,7 +1,6 @@
 package com.chriscarini.jetbrains.codeexfiltration.services;
 
 import com.intellij.openapi.application.ApplicationManager;
-import com.intellij.openapi.components.ApplicationComponent;
 import com.intellij.openapi.diagnostic.Logger;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -19,7 +18,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 
-public class CodeExfiltrationService implements ApplicationComponent {
+public class CodeExfiltrationService {
     private static final Logger LOG = Logger.getInstance(CodeExfiltrationService.class);
 
     public static CodeExfiltrationService getInstance() {

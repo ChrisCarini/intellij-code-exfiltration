@@ -2,10 +2,11 @@
 *.ipr
 *.iws
 .gradle/
-.venv/
 build/
 gradle/
 out/
-uploads/
 gradlew*
+jetbrainsCredentials.gradle
+private.pem
+chain.crt
 *.DS_Store
