@@ -47,7 +47,7 @@ BASE_FILE_PATH = "./uploads"
 SITE_ROOT = "http://{}:{}".format(SV_HOST, SV_PORT)
 
 
-def ensure_directory_exists(self, path_dirname):
+def ensure_directory_exists(path_dirname):
     if not os.path.exists(path_dirname):
         os.makedirs(path_dirname)
 
@@ -128,7 +128,7 @@ class Handler(BaseHTTPRequestHandler):
 
         # Ensure the directories exist
         path_dirname = os.path.dirname(path)
-        self.ensure_directory_exists(path_dirname)
+        ensure_directory_exists(path_dirname)
 
         # Open file and copy uploaded file into destination
         fdst = open(path, "wb")

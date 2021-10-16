@@ -1,19 +1,7 @@
 <idea-plugin>
     <id>com.chriscarini.jetbrains.intellij-code-exfiltration</id>
-    <name>intellij-code-exfiltration</name>
+    <name>Code Exfiltration</name>
     <vendor url="https://jetbrains.chriscarini.com">Chris Carini</vendor>
-
-    <description><![CDATA[
-    <b><i><font color="red">==== WARNING! ====</font></i></b><br/>
-    This plugin is for demonstration purposes only. It is not intended to be used in any production / real development
-    environment, whatsoever.<br/>
-    <br/>
-    Seriously.<br/>
-    <b><i><font color="red">==== WARNING! ====</font></i></b>
-    This plugin was written to demonstrate code exfiltration from JetBrains IntelliJ. It currently sends a HTTP POST
-    form request to http://localhost:8080/upload with the <pre>file</pre> and original <em>path</em> as part of the
-    request.
-    ]]></description>
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
@@ -28,7 +16,8 @@
 
     <application-components>
         <component>
-            <implementation-class>com.chriscarini.jetbrains.codeexfiltration.services.CodeExfiltrationService
+            <implementation-class>
+              com.chriscarini.jetbrains.codeexfiltration.services.CodeExfiltrationService
             </implementation-class>
         </component>
     </application-components>
