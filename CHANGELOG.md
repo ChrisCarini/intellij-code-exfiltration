@@ -11,6 +11,7 @@
 - Adding GitHub build & release workflows.
 - Adding JetBrains Qodana (experimental, testing only)
 - Adding Apache License 2.0
+- Adding Gradle Wrapper files
 
 ### Changed
 - Upgrading Gradle to 6.6
