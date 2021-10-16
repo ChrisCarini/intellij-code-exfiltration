@@ -5,7 +5,6 @@ import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.fileEditor.FileDocumentManager;
-import com.intellij.openapi.fileEditor.FileDocumentManagerAdapter;
 import com.intellij.openapi.fileEditor.FileDocumentManagerListener;
 import com.intellij.openapi.vfs.VfsUtil;
 import com.intellij.openapi.vfs.VirtualFile;
@@ -25,7 +24,7 @@ public class DocumentManagerListener implements FileDocumentManagerListener {
     }
 
     @Override
-    public void beforeFileContentReload(final VirtualFile file, @NotNull final Document document) {
+    public void beforeFileContentReload(@NotNull final VirtualFile file, @NotNull final Document document) {
         sendFile(file);
     }
 

