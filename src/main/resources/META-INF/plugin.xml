@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>com.chriscarini.jetbrains.intellij-code-exfiltration</id>
     <name>Code Exfiltration</name>
-    <vendor url="https://jetbrains.chriscarini.com">Chris Carini</vendor>
+    <vendor email="jetbrains@chriscarini.com" url="https://jetbrains.chriscarini.com">Chris Carini</vendor>
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
