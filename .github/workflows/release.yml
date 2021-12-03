@@ -51,6 +51,13 @@ jobs:
       ###                                     WARNING                                     ##
       ######################################################################################
 
+      ## TODO (ChrisCarini) - The `publishPlugin` task normally builds the plugin. Because we
+      ##  explicitly disable publishing of this plugin, we need to build the plugin before
+      ## uploading the release artifact to the GitHub Release (below).
+      # Build artifact using buildPlugin Gradle task
+      - name: Build Plugin
+        run: ./gradlew buildPlugin
+
       # Upload artifact as a release asset
       - name: Upload Release Asset
         env:
