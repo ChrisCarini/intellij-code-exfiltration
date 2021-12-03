@@ -4,6 +4,19 @@
 
 ## [Unreleased]
 ### Added
+
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [0.0.2] - 2021-12-03
+### Added
 - Restructured file to extract all variables into file.
 - Adding ability to publish to different channels based on SemVer pre-release labels.
 - Adding [JetBrains Plugin Signing](https://plugins.jetbrains.com/docs/intellij/plugin-signing.html)
@@ -17,14 +30,6 @@
 - Upgrading Gradle to 6.6
 - Upgrading IntelliJ to 2021.2.2
 - Upgrading IntelliJ Gradle plugin to 1.2.0
-
-### Deprecated
-
-### Removed
-
-### Fixed
-
-### Security
 
 ## [0.0.1] - 2018-07-08
 ### Added
