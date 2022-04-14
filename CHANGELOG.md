@@ -7,6 +7,7 @@
 
 ### Changed
 - Upgrading IntelliJ to 2022.1
+- Upgrading `minimal_upload_server.py` to Python 3.
 
 ### Deprecated
 

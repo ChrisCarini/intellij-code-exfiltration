@@ -39,7 +39,7 @@ import json
 import mimetypes as memetypes
 import os
 import shutil
-from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
+from http.server import BaseHTTPRequestHandler, HTTPServer
 
 SV_HOST = "localhost"
 SV_PORT = 8080
@@ -78,7 +78,7 @@ class Handler(BaseHTTPRequestHandler):
             self.send_response(200)
             self.send_header("Content-Type", content)
             self.send_header("Content-Encoding", encoding)
-            self.send_header("Content-Length", info.st_size)
+            self.send_header("Content-Length", str(info.st_size))
             self.end_headers()
 
         elif path_elements[0] == "upload":
@@ -118,13 +118,13 @@ class Handler(BaseHTTPRequestHandler):
         path = form['path'].value
         form_file = form["file"].file
 
-        print "Receiving file: {}".format(filename)
-        print "Orig path: {}".format(path)
+        print(f"Receiving file: {filename}")
+        print(f"Orig path: {path}")
 
         # Ensure orig path contains a leading slash and add to base file path
         path = BASE_FILE_PATH + os.path.join("/", path)
 
-        print "To path: {}".format(path)
+        print(f"To path: {path}")
 
         # Ensure the directories exist
         path_dirname = os.path.dirname(path)
@@ -142,9 +142,9 @@ class Handler(BaseHTTPRequestHandler):
             "status": 200,
         }
 
-        print "File received : {} : Stored to: {}".format(filename, path)
+        print(f"File received : {filename} : Stored to: {path}")
 
-        self.wfile.write(json.dumps(result))
+        self.wfile.write(bytes(json.dumps(result), 'UTF-8'))
 
 
 ensure_directory_exists(BASE_FILE_PATH)
