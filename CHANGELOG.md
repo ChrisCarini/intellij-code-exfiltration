@@ -6,8 +6,6 @@
 ### Added
 
 ### Changed
-- Upgrading IntelliJ to 2022.1
-- Upgrading `minimal_upload_server.py` to Python 3.
 
 ### Deprecated
 
@@ -16,6 +14,11 @@
 ### Fixed
 
 ### Security
+
+## [0.0.4] - 2022-04-14
+### Changed
+- Upgrading IntelliJ to 2022.1
+- Upgrading  to Python 3.
 
 ## [0.0.3] - 2021-12-03
 ### Changed
