@@ -6,7 +6,6 @@
 ### Added
 
 ### Changed
-- Upgrading IntelliJ to 2022.2
 
 ### Deprecated
 
@@ -15,6 +14,10 @@
 ### Fixed
 
 ### Security
+
+## [0.0.5] - 2022-07-29
+### Changed
+- Upgrading IntelliJ to 2022.2
 
 ## [0.0.4] - 2022-04-14
 ### Changed
@@ -35,6 +38,7 @@
 - Adding JetBrains Qodana (experimental, testing only)
 - Adding Apache License 2.0
 - Adding Gradle Wrapper files
+
 
 ### Changed
 - Upgrading Gradle to 6.6
