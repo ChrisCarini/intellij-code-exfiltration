@@ -1,6 +1,6 @@
 # JetBrains IntelliJ Code Exfiltration Plugin
 
-[![GitHub License](https://img.shields.io/github/license/ChrisCarini/intellij-code-exfiltration?style=flat-square)](https://github.com/ChrisCarini/intellij-code-exfiltration/blob/master/LICENSE)
+[![GitHub License](https://img.shields.io/github/license/ChrisCarini/intellij-code-exfiltration?style=flat-square)](https://github.com/ChrisCarini/intellij-code-exfiltration/blob/main/LICENSE)
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/ChrisCarini/intellij-code-exfiltration/JetBrains%20Plugin%20CI?logo=GitHub&style=flat-square)](https://github.com/ChrisCarini/intellij-code-exfiltration/actions?query=workflow%3A%22JetBrains+Plugin+CI%22)
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/ChrisCarini/intellij-code-exfiltration/IntelliJ%20Plugin%20Compatibility?label=IntelliJ%20Plugin%20Compatibility&logo=GitHub&style=flat-square)](https://github.com/ChrisCarini/intellij-code-exfiltration/actions?query=workflow%3A%22IntelliJ+Plugin+Compatibility%22)
 
