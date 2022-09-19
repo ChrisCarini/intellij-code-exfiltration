@@ -53,11 +53,27 @@ jobs:
         run: |
           ./gradlew patchChangelog --release-note="$CHANGELOG"
 
-      # Publish the plugin to the Marketplace
-      - name: Publish Plugin
-        env:
-          PUBLISH_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
-        run: ./gradlew publishPlugin
+      ### TODO (ChrisCarini) - Disable publishing to JetBrains Marketplace in this workflow.
+      ######################################################################################
+      ###                                     WARNING                                     ##
+      ######################################################################################
+      ###  We intentionally do not want to publish the plugin to the Marketplace as this
+      ###  plugin is a Proof-of-Concept for exfiltrating code from within IntelliJ.
+      ## Publish the plugin to the Marketplace
+      #- name: Publish Plugin
+      #  env:
+      #    PUBLISH_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
+      #  run: ./gradlew publishPlugin
+      ######################################################################################
+      ###                                     WARNING                                     ##
+      ######################################################################################
+
+      ## TODO (ChrisCarini) - The `publishPlugin` task normally builds the plugin. Because we
+      ##  explicitly disable publishing of this plugin, we need to build the plugin before
+      ## uploading the release artifact to the GitHub Release (below).
+      # Build artifact using buildPlugin Gradle task
+      - name: Build Plugin
+        run: ./gradlew buildPlugin
 
       # Upload artifact as a release asset
       - name: Upload Release Asset
