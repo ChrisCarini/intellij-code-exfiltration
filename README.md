@@ -15,11 +15,12 @@ Seriously. Do not do it.
 
 <b><i><font color="red">==== WARNING! ====</font></i></b>
 
-This plugin was written to demonstrate code exfiltration from JetBrains IntelliJ. It currently sends a HTTP POST form
-request to http://localhost:8080/upload with the `file` and original `path` as part of the request.
+This plugin was written to demonstrate code exfiltration from JetBrains IntelliJ. The plugin sends an HTTP POST form
+request to https://localhost:8080/upload with the `file` and original `path` as part of the request.
 <!-- Plugin description end -->
 
 ## Instructions
-1) Start the minimal upload server: `cd python_post_server && python minimal_upload_server.py`
+
+1) Start the minimal upload server: `cd python_post_server && python3 minimal_upload_server.py`
 2) Start an IntelliJ instance with this plugin installed
 3) Open a project and file, make a change and save

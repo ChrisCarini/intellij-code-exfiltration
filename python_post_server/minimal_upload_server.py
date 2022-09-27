@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 """
 Minimal example of a file receiving service in python 2.7 using only built-ins intended for use in the
@@ -39,17 +39,15 @@ import json
 import mimetypes as memetypes
 import os
 import shutil
+import ssl
 from http.server import BaseHTTPRequestHandler, HTTPServer
+from pathlib import Path
+from typing import List
 
 SV_HOST = "localhost"
 SV_PORT = 8080
-BASE_FILE_PATH = "./uploads"
-SITE_ROOT = "http://{}:{}".format(SV_HOST, SV_PORT)
-
-
-def ensure_directory_exists(path_dirname):
-    if not os.path.exists(path_dirname):
-        os.makedirs(path_dirname)
+BASE_FILE_PATH = Path.cwd() / "uploads"
+SITE_ROOT = f"https://{SV_HOST}:{SV_PORT}"
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -58,14 +56,13 @@ class Handler(BaseHTTPRequestHandler):
         self.send_headers()
 
     def send_headers(self):
-        npath = os.path.normpath(self.path)
-        npath = npath[1:]
+        npath = os.path.normpath(self.path)[1:]
         path_elements = npath.split('/')
 
         if path_elements[0] == "f":
-            reqfile = path_elements[1]
+            reqfile = self.to_full_local_path(path_elements)
 
-            if not os.path.isfile(reqfile) or not os.access(reqfile, os.R_OK):
+            if not reqfile.is_file() or not os.access(reqfile, os.R_OK):
                 self.send_error(404, "File not found")
                 return None
 
@@ -73,7 +70,7 @@ class Handler(BaseHTTPRequestHandler):
             if content is None:
                 content = "application/octet-stream"
 
-            info = os.stat(reqfile)
+            info = reqfile.stat()
 
             self.send_response(200)
             self.send_header("Content-Type", content)
@@ -92,19 +89,20 @@ class Handler(BaseHTTPRequestHandler):
 
         return path_elements
 
+    def to_full_local_path(self, path_elements: List[str]) -> Path:
+        return BASE_FILE_PATH / Path('/'.join(path_elements[1:]))
+
     def do_GET(self):
-        elements = self.send_headers()
-        if elements is None:
+        path_elements = self.send_headers()
+        if path_elements is None or path_elements[0] != "f":
             return
 
-        reqfile = elements[1]
-        f = open(BASE_FILE_PATH + reqfile, 'rb')
-        shutil.copyfileobj(f, self.wfile)
-        f.close()
+        with open(self.to_full_local_path(path_elements), 'rb') as f:
+            shutil.copyfileobj(f, self.wfile)
 
     def do_POST(self):
-        elements = self.send_headers()
-        if elements is None or elements[0] != "upload":
+        path_elements = self.send_headers()
+        if path_elements is None or path_elements[0] != "upload":
             return
 
         form = cgi.FieldStorage(
@@ -121,32 +119,40 @@ class Handler(BaseHTTPRequestHandler):
         print(f"Receiving file: {filename}")
         print(f"Orig path: {path}")
 
-        # Ensure orig path contains a leading slash and add to base file path
-        path = BASE_FILE_PATH + os.path.join("/", path)
+        # Strip leading slash if one exists
+        local_path = path[1:] if path[0] == '/' else path
 
-        print(f"To path: {path}")
+        print(f"To path: {local_path}")
+
+        full_local_path = BASE_FILE_PATH / local_path
 
         # Ensure the directories exist
-        path_dirname = os.path.dirname(path)
-        ensure_directory_exists(path_dirname)
+        full_local_path.parent.mkdir(exist_ok=True)
 
         # Open file and copy uploaded file into destination
-        fdst = open(path, "wb")
-        shutil.copyfileobj(form_file, fdst)
-        fdst.close()
+        with open(full_local_path, "wb") as fdst:
+            shutil.copyfileobj(form_file, fdst)
 
         # Create result object to send to user
         result = {
-            "data": {"url": SITE_ROOT + "/f/" + path},
+            "data": {"url": f'{SITE_ROOT}/f/{local_path}'},
             "success": True,
             "status": 200,
         }
 
-        print(f"File received : {filename} : Stored to: {path}")
+        print(f"File received : {filename} : Stored to: {local_path}")
 
         self.wfile.write(bytes(json.dumps(result), 'UTF-8'))
 
 
-ensure_directory_exists(BASE_FILE_PATH)
+BASE_FILE_PATH.mkdir(exist_ok=True)
 
-HTTPServer((SV_HOST, SV_PORT), Handler).serve_forever()
+httpd = HTTPServer((SV_HOST, SV_PORT), Handler)
+print('Prompting for SSL PEM pass phrase. Enter "asdasd" when prompted.')
+httpd.socket = ssl.wrap_socket(
+    sock=httpd.socket,
+    keyfile='key.pem',
+    certfile='cert.pem',
+    server_side=True,
+)
+httpd.serve_forever()
