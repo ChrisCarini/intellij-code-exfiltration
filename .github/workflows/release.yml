@@ -21,12 +21,12 @@ jobs:
         with:
           ref: ${{ github.event.release.tag_name }}
 
-      # Setup Java 11 environment for the next steps
-      - name: Setup Java
+      # Setup Java 17 environment for the next steps
+      - name: Setup Java 17
         uses: actions/setup-java@v3
         with:
           distribution: zulu
-          java-version: 11
+          java-version: 17
           cache: gradle
 
       # Set environment variables
@@ -53,27 +53,11 @@ jobs:
         run: |
           ./gradlew patchChangelog --release-note="$CHANGELOG"
 
-      ### TODO (ChrisCarini) - Disable publishing to JetBrains Marketplace in this workflow.
-      ######################################################################################
-      ###                                     WARNING                                     ##
-      ######################################################################################
-      ###  We intentionally do not want to publish the plugin to the Marketplace as this
-      ###  plugin is a Proof-of-Concept for exfiltrating code from within IntelliJ.
-      ## Publish the plugin to the Marketplace
-      #- name: Publish Plugin
-      #  env:
-      #    PUBLISH_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
-      #  run: ./gradlew publishPlugin
-      ######################################################################################
-      ###                                     WARNING                                     ##
-      ######################################################################################
-
-      ## TODO (ChrisCarini) - The `publishPlugin` task normally builds the plugin. Because we
-      ##  explicitly disable publishing of this plugin, we need to build the plugin before
-      ## uploading the release artifact to the GitHub Release (below).
-      # Build artifact using buildPlugin Gradle task
-      - name: Build Plugin
-        run: ./gradlew buildPlugin
+      # Publish the plugin to the Marketplace
+      - name: Publish Plugin
+        env:
+          PUBLISH_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
+        run: ./gradlew publishPlugin
 
       # Upload artifact as a release asset
       - name: Upload Release Asset
