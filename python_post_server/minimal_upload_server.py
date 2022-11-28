@@ -127,7 +127,7 @@ class Handler(BaseHTTPRequestHandler):
         full_local_path = BASE_FILE_PATH / local_path
 
         # Ensure the directories exist
-        full_local_path.parent.mkdir(exist_ok=True)
+        full_local_path.parent.mkdir(parents=True, exist_ok=True)
 
         # Open file and copy uploaded file into destination
         with open(full_local_path, "wb") as fdst:
@@ -148,11 +148,13 @@ class Handler(BaseHTTPRequestHandler):
 BASE_FILE_PATH.mkdir(exist_ok=True)
 
 httpd = HTTPServer((SV_HOST, SV_PORT), Handler)
-print('Prompting for SSL PEM pass phrase. Enter "asdasd" when prompted.')
-httpd.socket = ssl.wrap_socket(
-    sock=httpd.socket,
-    keyfile='key.pem',
-    certfile='cert.pem',
-    server_side=True,
-)
+# TODO(ChrisCarini) - Disabling SSL for now; getting cert chain errors when curling locally, and IJ plugin is
+#  also getting similar exceptions.
+# print('Prompting for SSL PEM pass phrase. Enter "asdasd" when prompted.')
+# httpd.socket = ssl.wrap_socket(
+#     sock=httpd.socket,
+#     keyfile='key.pem',
+#     certfile='cert.pem',
+#     server_side=True,
+# )
 httpd.serve_forever()
