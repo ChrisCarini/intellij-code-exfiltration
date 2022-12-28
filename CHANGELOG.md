@@ -3,11 +3,9 @@
 # IntelliJ Platform Plugin Template Changelog
 
 ## [Unreleased]
-
 ### Added
 
 ### Changed
-- Upgrading IntelliJ from 2022.2.4 to 2022.3.0
 
 ### Deprecated
 
@@ -17,29 +15,27 @@
 
 ### Security
 
-## [0.0.6] - 2022-11-28
+## [0.1.0] - 2022-12-28
+### Changed%0D%0A- Upgrading IntelliJ from 2022.2.4 to 2022.3.0
 
+## [0.0.6] - 2022-11-28
 ### Changed
 - Upgrading IntelliJ from 2022.2 to 2022.2.4
 
 ## [0.0.5] - 2022-07-29
-
 ### Changed
 - Upgrading IntelliJ to 2022.2
 
 ## [0.0.4] - 2022-04-14
-
 ### Changed
 - Upgrading IntelliJ to 2022.1
 - Upgrading to Python 3.
 
 ## [0.0.3] - 2021-12-03
-
 ### Changed
 - Upgrading IntelliJ to 2021.3
 
 ## [0.0.2] - 2021-12-03
-
 ### Added
 - Restructured file to extract all variables into file.
 - Adding ability to publish to different channels based on SemVer pre-release labels.
@@ -56,6 +52,5 @@
 - Upgrading IntelliJ Gradle plugin to 1.2.0
 
 ## [0.0.1] - 2018-07-08
-
 ### Added
 - Initial release.
