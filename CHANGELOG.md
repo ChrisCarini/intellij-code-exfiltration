@@ -7,7 +7,6 @@
 ### Added
 
 ### Changed
-- Upgrading IntelliJ from 2023.2.2 to 2023.2.3
 
 ### Deprecated
 
@@ -16,6 +15,11 @@
 ### Fixed
 
 ### Security
+
+## [0.3.3] - 2023-10-12
+
+### Changed
+- Upgrading IntelliJ from 2023.2.2 to 2023.2.3
 
 ## [0.3.2] - 2023-09-21
 
@@ -122,7 +126,8 @@
 ### Added
 - Initial release.
 
-[Unreleased]: https://github.com/ChrisCarini/intellij-code-exfiltration/compare/v0.3.2...HEAD
+[Unreleased]: https://github.com/ChrisCarini/intellij-code-exfiltration/compare/v0.3.3...HEAD
+[0.3.3]: https://github.com/ChrisCarini/intellij-code-exfiltration/compare/v0.3.2...v0.3.3
 [0.3.2]: https://github.com/ChrisCarini/intellij-code-exfiltration/compare/v0.3.1...v0.3.2
 [0.3.1]: https://github.com/ChrisCarini/intellij-code-exfiltration/compare/v0.3.0...v0.3.1
 [0.3.0]: https://github.com/ChrisCarini/intellij-code-exfiltration/compare/v0.2.5...v0.3.0
