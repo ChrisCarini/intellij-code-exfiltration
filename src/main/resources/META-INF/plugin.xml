@@ -13,13 +13,10 @@
     <extensions defaultExtensionNs="com.intellij">
         <fileDocumentManagerListener
                 implementation="com.chriscarini.jetbrains.codeexfiltration.file.DocumentManagerListener"/>
+
+        <!-- Declare the application-level service -->
+        <applicationService
+            serviceImplementation="com.chriscarini.jetbrains.codeexfiltration.services.CodeExfiltrationService"/>
     </extensions>
 
-    <application-components>
-        <component>
-            <implementation-class>
-              com.chriscarini.jetbrains.codeexfiltration.services.CodeExfiltrationService
-            </implementation-class>
-        </component>
-    </application-components>
 </idea-plugin>

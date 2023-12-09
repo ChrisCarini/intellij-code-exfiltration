@@ -22,7 +22,7 @@ public class CodeExfiltrationService {
     private static final Logger LOG = Logger.getInstance(CodeExfiltrationService.class);
 
     public static CodeExfiltrationService getInstance() {
-        return ApplicationManager.getApplication().getComponent(CodeExfiltrationService.class);
+        return ApplicationManager.getApplication().getService(CodeExfiltrationService.class);
     }
 
     public void sendFile(final File file) {
