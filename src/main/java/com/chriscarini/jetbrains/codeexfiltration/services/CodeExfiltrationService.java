@@ -31,8 +31,8 @@ public class CodeExfiltrationService {
         final URL serverUrl;
         final String url = "http://localhost:8080/upload";
         try {
-            serverUrl = new URL(url);
-        } catch (final MalformedURLException e) {
+            serverUrl = (new URI(url)).toURL();
+        } catch (final MalformedURLException | URISyntaxException e) {
             LOG.error("Bad URL specified to upload file: " + url, e);
             return;
         }
