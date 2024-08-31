@@ -7,7 +7,6 @@
 ### Added
 
 ### Changed
-- Upgrading IntelliJ from 2024.2 to 2024.2.1
 
 ### Deprecated
 
@@ -16,6 +15,12 @@
 ### Fixed
 
 ### Security
+
+## [1.1.1] - 2024-08-31
+
+### Changed
+
+- Upgrading IntelliJ from 2024.2 to 2024.2.1
 
 ## [1.1.0] - 2024-08-20
 
@@ -244,7 +249,8 @@
 
 - Initial release.
 
-[Unreleased]: https://github.com/ChrisCarini/intellij-code-exfiltration/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/ChrisCarini/intellij-code-exfiltration/compare/v1.1.1...HEAD
+[1.1.1]: https://github.com/ChrisCarini/intellij-code-exfiltration/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/ChrisCarini/intellij-code-exfiltration/compare/v1.0.5...v1.1.0
 [1.0.5]: https://github.com/ChrisCarini/intellij-code-exfiltration/compare/v1.0.4...v1.0.5
 [1.0.4]: https://github.com/ChrisCarini/intellij-code-exfiltration/compare/v1.0.3...v1.0.4
