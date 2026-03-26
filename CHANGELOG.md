@@ -7,7 +7,6 @@
 ### Added
 
 ### Changed
-- Upgrading IntelliJ from 2025.3.4 to 2026.1
 
 ### Deprecated
 
@@ -16,6 +15,12 @@
 ### Fixed
 
 ### Security
+
+## [3.0.0] - 2026-03-26
+
+### Changed
+
+- Upgrading IntelliJ from 2025.3.4 to 2026.1
 
 ## [2.2.5] - 2026-03-20
 
@@ -419,7 +424,8 @@
 
 - Initial release.
 
-[Unreleased]: https://github.com/ChrisCarini/intellij-code-exfiltration/compare/v2.2.5...HEAD
+[Unreleased]: https://github.com/ChrisCarini/intellij-code-exfiltration/compare/v3.0.0...HEAD
+[3.0.0]: https://github.com/ChrisCarini/intellij-code-exfiltration/compare/v2.2.5...v3.0.0
 [2.2.5]: https://github.com/ChrisCarini/intellij-code-exfiltration/compare/v2.2.4...v2.2.5
 [2.2.4]: https://github.com/ChrisCarini/intellij-code-exfiltration/compare/v2.2.3...v2.2.4
 [2.2.3]: https://github.com/ChrisCarini/intellij-code-exfiltration/compare/v2.2.2...v2.2.3
