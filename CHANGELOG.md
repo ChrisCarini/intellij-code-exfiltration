@@ -7,7 +7,6 @@
 ### Added
 
 ### Changed
-- Upgrading IntelliJ from 2026.2.1 to 2026.2.2
 
 ### Deprecated
 
@@ -16,6 +15,12 @@
 ### Fixed
 
 ### Security
+
+## [3.1.3] - 2026-09-03
+
+### Changed
+
+- Upgrading IntelliJ from 2026.2.1 to 2026.2.2
 
 ## [3.1.2] - 2026-08-11
 
@@ -471,7 +476,8 @@
 
 - Initial release.
 
-[Unreleased]: https://github.com/ChrisCarini/intellij-code-exfiltration/compare/v3.1.2...HEAD
+[Unreleased]: https://github.com/ChrisCarini/intellij-code-exfiltration/compare/v3.1.3...HEAD
+[3.1.3]: https://github.com/ChrisCarini/intellij-code-exfiltration/compare/v3.1.2...v3.1.3
 [3.1.2]: https://github.com/ChrisCarini/intellij-code-exfiltration/compare/v3.1.1...v3.1.2
 [3.1.1]: https://github.com/ChrisCarini/intellij-code-exfiltration/compare/v3.1.0...v3.1.1
 [3.1.0]: https://github.com/ChrisCarini/intellij-code-exfiltration/compare/v3.0.4...v3.1.0
@@ -543,5 +549,5 @@
 [0.0.5]: https://github.com/ChrisCarini/intellij-code-exfiltration/compare/v0.0.4...v0.0.5
 [0.0.4]: https://github.com/ChrisCarini/intellij-code-exfiltration/compare/v0.0.3...v0.0.4
 [0.0.3]: https://github.com/ChrisCarini/intellij-code-exfiltration/compare/v0.0.2...v0.0.3
-[0.0.2]: https://github.com/ChrisCarini/intellij-code-exfiltration/compare/54f3d3b8e9b41b2f7f23f2df4dd99376329b40e0...v0.0.2
-[0.0.1]: https://github.com/ChrisCarini/intellij-code-exfiltration/commit/54f3d3b8e9b41b2f7f23f2df4dd99376329b40e0
+[0.0.2]: https://github.com/ChrisCarini/intellij-code-exfiltration/compare/v0.0.1...v0.0.2
+[0.0.1]: https://github.com/ChrisCarini/intellij-code-exfiltration/commits/v0.0.1
